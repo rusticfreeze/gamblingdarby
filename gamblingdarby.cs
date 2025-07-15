@@ -1,5 +1,3 @@
-﻿// See https://aka.ms/new-console-template for more information
-
 Random dice = new();
 
 Console.WriteLine("Welcome to Gambling with D'Arby!, what might your name be?");
@@ -8,6 +6,8 @@ Console.WriteLine($"Ah, {name}, I see! Well, let's decide on a starting budget f
 int amount = dice.Next(0, 100000);
 Console.WriteLine($"Well, it seems that you're starting budget will be ${amount}!");
 
+
+// Loops until the user has no money left.
 while (amount > 0)
 {
     Console.WriteLine("Now, are you willing to play a low-risk game or a high-risk game? Or type END if you want to end the game.");
