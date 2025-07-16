@@ -1,4 +1,3 @@
-
 Random dice = new();
 
 Console.WriteLine("Welcome to Gambling with D'Arby!, what might your name be?");
@@ -15,13 +14,15 @@ while (amount > 0)
     // Gives the user the option to select between two gambling games and uses a string user input to store the answer.
     Console.WriteLine("Now, are you willing to play a low-risk game or a high-risk game? Or type END if you want to end the game.");
     string answer = Console.ReadLine();
+    answer = answer.ToLower();
 
     // In the Low-risk game, a random number is assigned to a decimal variable, and the user guesses if the variable is an odd or even number, winning money if their answer is correct.
-    if (answer == "Low-risk")
+    if (answer == "low-risk")
     {
         decimal lowRandNumb = dice.Next(1, 50);
-        Console.WriteLine($"Safe choice, {name}! Now, are you willing to bet on odds or even? Answer in all-caps.");
+        Console.WriteLine($"Safe choice, {name}! Now, are you willing to bet on odds or even?");
         string answerTwo = Console.ReadLine();
+        answerTwo = answerTwo.ToUpper();
 
         if (answerTwo == "ODDS")
         {
@@ -60,13 +61,14 @@ while (amount > 0)
 
 
     }
-    
+
     // Same as the low-risk game, except that the random number is multiplied and added by other random numbers, giving/depriving the user a higher amount of money if they correctly guess the answer rather than the low-risk game.
-    else if (answer == "High-risk")
+    else if (answer == "high-risk")
     {
         int highRiskNumber = dice.Next(1, 1000);
         Console.WriteLine("Okay, big boy, high-risk it is. Will you pick odds or evens? Write your answer in all-caps.");
         string answerThree = Console.ReadLine();
+        answerThree = answerThree.ToUpper();
 
         if (answerThree == "ODDS")
         {
@@ -106,7 +108,7 @@ while (amount > 0)
     }
 
     // Command to allow the user to end the gambling session.
-    else if (answer == "END")
+    else if (answer == "end")
     {
         Console.WriteLine($"Well, {name}, you finished with ${amount}! Good boy!");
         return;
