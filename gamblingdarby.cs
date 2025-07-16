@@ -1,3 +1,5 @@
+// See https://aka.ms/new-console-template for more information
+
 Random dice = new();
 
 Console.WriteLine("Welcome to Gambling with D'Arby!, what might your name be?");
@@ -10,9 +12,12 @@ Console.WriteLine($"Well, it seems that you're starting budget will be ${amount}
 // Loops until the user has no money left.
 while (amount > 0)
 {
+
+    // Gives the user the option to select between two gambling games and uses a string user input to store the answer.
     Console.WriteLine("Now, are you willing to play a low-risk game or a high-risk game? Or type END if you want to end the game.");
     string answer = Console.ReadLine();
 
+    // In the Low-risk game, a random number is assigned to a decimal variable, and the user guesses if the variable is an odd or even number, winning money if their answer is correct.
     if (answer == "Low-risk")
     {
         decimal lowRandNumb = dice.Next(1, 50);
@@ -56,7 +61,8 @@ while (amount > 0)
 
 
     }
-
+    
+    // Same as the low-risk game, except that the random number is multiplied and added by other random numbers, giving/depriving the user a higher amount of money if they correctly guess the answer rather than the low-risk game.
     else if (answer == "High-risk")
     {
         int highRiskNumber = dice.Next(1, 1000);
@@ -81,14 +87,14 @@ while (amount > 0)
 
         }
 
-        else if (answerThree == "EVENS")
+        else if (answerThree == "EVEN")
         {
             Console.WriteLine("Okay, evens it is! Now, let's gamble.");
             decimal evenNumber = highRiskNumber * dice.Next(1, 20) + dice.Next(20, 40);
             if (evenNumber % 2 == 0)
             {
                 amount += dice.Next(1000, 5000);
-                Console.WriteLine($"DAMN {name} YOU JUST WON THE GAMBLE GOOD JOB");
+                Console.WriteLine($"DAMN {name} YOU JUST WON THE GAMBLE GOOD JOB YOU NOW HAVE ${amount}");
             }
 
             else if (evenNumber % 2 != 0)
@@ -100,6 +106,7 @@ while (amount > 0)
         }
     }
 
+    // Command to allow the user to end the gambling session.
     else if (answer == "END")
     {
         Console.WriteLine($"Well, {name}, you finished with ${amount}! Good boy!");
@@ -112,6 +119,7 @@ while (amount > 0)
     }
 }
 
+// Message in case the user loses all the money.
 if (amount <= 0)
 {
     Console.WriteLine($"Oh, my dear {name}... You just lost all your money and went bankrupt. Final amount: ${amount}.");
