@@ -20,7 +20,7 @@ while (amount > 0)
     if (answer == "low-risk")
     {
         decimal lowRandNumb = dice.Next(1, 50);
-        Console.WriteLine($"Safe choice, {name}! Now, are you willing to bet on odds or even?");
+        Console.WriteLine($"Safe choice, {name}! Now, are you willing to bet on odds or evens?");
         string answerTwo = Console.ReadLine();
         answerTwo = answerTwo.ToUpper();
 
@@ -41,7 +41,7 @@ while (amount > 0)
             }
         }
 
-        else if (answerTwo == "EVEN")
+        else if (answerTwo == "EVENS")
         {
             Console.WriteLine("Okay, evens it is! Now, let's gamble.");
             {
@@ -88,7 +88,7 @@ while (amount > 0)
 
         }
 
-        else if (answerThree == "EVEN")
+        else if (answerThree == "EVENS")
         {
             Console.WriteLine("Okay, evens it is! Now, let's gamble.");
             decimal evenNumber = highRiskNumber * dice.Next(1, 20) + dice.Next(20, 40);
